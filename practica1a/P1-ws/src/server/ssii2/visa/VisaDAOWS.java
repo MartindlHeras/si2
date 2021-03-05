@@ -254,15 +254,15 @@ public class VisaDAOWS extends DBTester {
                }
 
             } else {
-            /******************/
-            stmt = con.createStatement();
-            String insert = getQryInsertPago(pago);
-            errorLog(insert);
-            ret = false;
-            if (!stmt.execute(insert)
-                    && stmt.getUpdateCount() == 1) {
-                ret = true;
-			}
+                /******************/
+                stmt = con.createStatement();
+                String insert = getQryInsertPago(pago);
+                errorLog(insert);
+                ret = false;
+                if (!stmt.execute(insert)
+                        && stmt.getUpdateCount() == 1) {
+                    ret = true;
+			    }
             }/******/
 
             // Obtener id.autorizacion
@@ -329,12 +329,14 @@ public class VisaDAOWS extends DBTester {
      * @param idComercio
      * @return
      */
-    public PagoBean[] getPagos(String idComercio) {
+     @WebMethod(operationName = "getPagos")
+    public ArrayList<PagoBean> getPagos(@WebParam(name = "idComercio") String idComercio) {
+    // public PagoBean[] getPagos(String idComercio) {
 
         PreparedStatement pstmt = null;
         Connection pcon = null;
         ResultSet rs = null;
-        PagoBean[] ret = null;
+        // PagoBean[] ret = null;
         ArrayList<PagoBean> pagos = null;
         String qry = null;
 
@@ -369,8 +371,8 @@ public class VisaDAOWS extends DBTester {
                 pagos.add(p);
             }
 
-            ret = new PagoBean[pagos.size()];
-            ret = pagos.toArray(ret);
+            // ret = new PagoBean[pagos.size()];
+            // ret = pagos.toArray(ret);
 
             // Cerramos / devolvemos la conexion al pool
             pcon.close();
@@ -393,7 +395,7 @@ public class VisaDAOWS extends DBTester {
             }
         }
 
-        return ret;
+        return pagos;
     }
 
     // Borrar los pagos asociados a un comercio
@@ -402,7 +404,8 @@ public class VisaDAOWS extends DBTester {
      * @param idComercio
      * @return numero de registros afectados
      */
-    public int delPagos(String idComercio) {
+     @WebMethod(operationName = "delPagos")
+    public int delPagos(@WebParam(name = "idComercio") String idComercio) {
 
         PreparedStatement pstmt = null;
         Connection pcon = null;
@@ -466,7 +469,7 @@ public class VisaDAOWS extends DBTester {
     /**
      * @return the debug
      */
-     @WebMethod(isDebug = "isDebug")
+     @WebMethod(operationName = "isDebug")
     public boolean isDebug() {
         return debug;
     }
@@ -503,7 +506,7 @@ public class VisaDAOWS extends DBTester {
      @WebMethod(operationName = "isDirectConnection")
      @Override
     public boolean isDirectConnection() {
-        return directConnection;
+        return super.isDirectConnection();
     }
 
     /**
@@ -512,7 +515,7 @@ public class VisaDAOWS extends DBTester {
      @WebMethod(operationName = "setDirectConnection")
      @Override
     public void setDirectConnection(@WebParam(name = "directConnection") boolean directConnection) {
-        this.directConnection = directConnection;
+        super.setDirectConnection(directConnection);
     }
 
 }

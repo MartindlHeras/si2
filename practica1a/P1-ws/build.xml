@@ -84,7 +84,13 @@ ant limpiar-todo
 	</target>
         
   <target name="generar-stubs" depends="montar-jerarquia" description="Genera los stubs del cliente a partir del archivo WSDL">
-    <!-- TODO - Implementar llamada wsimport -->
+    <exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${build.client}/WEB-INF/classes" />
+			<arg value="-p" />
+			<arg value="${paquete}.visa" />
+			<arg value="${wsdl.url}" />
+	</exec>
     <delete file="${build}/${tmpvisaclientjar}" />
     <jar jarfile="${build}/${tmpvisaclientjar}" >
   	<fileset dir="${build.client}/WEB-INF/classes" />

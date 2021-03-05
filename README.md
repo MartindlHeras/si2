@@ -2,7 +2,7 @@
 
 Profesor: Pedro J. Pascual (pedro.pascual@uam.es)
 
-### Grupo 1401
+### Grupo 1401 Pareja 7
 
 Nombre | Mail
 ------------------------------ | ------------------------------

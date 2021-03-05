@@ -44,7 +44,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import ssii2.visa.*;
-import ssii2.visa.dao.VisaDAO;
+// import ssii2.visa.dao.VisaDAO;
+
+import ssii2.visa.VisaDAOWSService; // Stub generado automáticamente
+import ssii2.visa.VisaDAOWS; // Stub generado automáticamente
+import javax.xml.ws.WebServiceRef;
+
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.WebServiceException;
 
 /**
  *
@@ -135,11 +142,12 @@ private void printAddresses(HttpServletRequest request, HttpServletResponse resp
     */
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    throws ServletException, IOException, WebServiceException{
                  
         TarjetaBean tarjeta = creaTarjeta(request);            
         ValidadorTarjeta val = new ValidadorTarjeta();                        
         PagoBean pago = null; 
+        PagoBean pagoObj = null; 
         
         // printAddresses(request,response);
         if (! val.esValida(tarjeta)) {            
@@ -148,7 +156,17 @@ private void printAddresses(HttpServletRequest request, HttpServletResponse resp
             return;
         }
 
-		VisaDAO dao = new VisaDAO();
+		// VisaDAO dao = new VisaDAO();
+
+        VisaDAOWSService service = new VisaDAOWSService();
+        VisaDAOWS dao = service.getVisaDAOWSPort();
+
+        // Obtener ruta del fichero de configuracion
+        String rutaServicio = getServletContext().getInitParameter("rutaServicio");
+
+        BindingProvider bp = (BindingProvider) dao;
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, rutaServicio);
+
 		HttpSession sesion = request.getSession(false);
 		if (sesion != null) {
 			pago = (PagoBean) sesion.getAttribute(ComienzaPago.ATTR_PAGO);
@@ -171,15 +189,17 @@ private void printAddresses(HttpServletRequest request, HttpServletResponse resp
             return;
         }
 
-	if (! dao.realizaPago(pago)) {      
+        // realizaPago ahora devuelve un objeto no un boolean
+        pagoObj = dao.realizaPago(pago);
+        if (pagoObj == null) {
             enviaError(new Exception("Pago incorrecto"), request, response);
             return;
         }
 
-        request.setAttribute(ComienzaPago.ATTR_PAGO, pago);
+        request.setAttribute(ComienzaPago.ATTR_PAGO, pagoObj);
         if (sesion != null) sesion.invalidate();
         reenvia("/pagoexito.jsp", request, response);
-        return;        
+        return;      
     }
 
      /** 

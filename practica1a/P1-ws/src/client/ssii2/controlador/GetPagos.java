@@ -17,7 +17,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ssii2.visa.PagoBean;
-import ssii2.visa.dao.VisaDAO;
+// import ssii2.visa.dao.VisaDAO;
+
+import ssii2.visa.VisaDAOWSService; // Stub generado automáticamente
+import ssii2.visa.VisaDAOWS; // Stub generado automáticamente
+import javax.xml.ws.WebServiceRef;
+
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.WebServiceException;
+
+import java.util.List;
 
 /**
  *
@@ -46,15 +55,28 @@ public class GetPagos extends ServletRaiz {
     * @param response objeto de respuesta
     */    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {        
+    throws ServletException, IOException, WebServiceException {        
         
-		VisaDAO dao = new VisaDAO();
+		// VisaDAO dao = new VisaDAO();
+
+        VisaDAOWSService service = new VisaDAOWSService();
+        VisaDAOWS dao = service.getVisaDAOWSPort();
+
+        // Obtener ruta del fichero de configuracion
+        String rutaServicio = getServletContext().getInitParameter("rutaServicio");
+
+        BindingProvider bp = (BindingProvider) dao;
+        bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, rutaServicio);
 		
 		/* Se recoge de la petici&oacute;n el par&aacute;metro idComercio*/  
 		String idComercio = request.getParameter(PARAM_ID_COMERCIO);
 		
 		/* Petici&oacute;n de los pagos para el comercio */
-		PagoBean[] pagos = dao.getPagos(idComercio);        
+        List<PagoBean> pagosBuff = dao.getPagos(idComercio);
+		PagoBean[] pagos = null;
+
+        pagos = new PagoBean[pagosBuff.size()];
+        pagos = pagosBuff.toArray(pagos);
 
         request.setAttribute(ATTR_PAGOS, pagos);
         reenvia("/listapagos.jsp", request, response);
