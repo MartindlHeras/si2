@@ -9,7 +9,7 @@ Nombre | Mail
 Santiago Valderrábano | santiago.valderrabano@estudiante.uam.es
 Martín de las Heras | martin.delasheras@estudiante.uam.es
 
-- [ ] Entrega 0
+- [x] Entrega 0
 - [ ] Entrega 1a
 - [ ] Entrega 1b
 - [ ] Entrega 2
