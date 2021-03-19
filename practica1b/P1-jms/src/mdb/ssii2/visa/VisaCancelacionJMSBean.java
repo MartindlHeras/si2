@@ -32,9 +32,9 @@ public class VisaCancelacionJMSBean extends DBTester implements MessageListener 
   private static final String UPDATE_CANCELA_QRY = "update pago " +
                                                 "set codRespuesta=999 " +
                                                 "where pago.idAutorizacion=?";
-  private static final String UPDATE_RECTIFICA_QRY = "update tarjeta " +
+  private static final String UPDATE_RECTIFICA_QRY = "update numTarjeta " +
                                                 "set saldo=? " +
-                                                "where tarjeta.numeroTarjeta=?";
+                                                "where numTarjeta.numeroTarjeta=?";
 
 
   public VisaCancelacionJMSBean() {
@@ -51,8 +51,8 @@ public class VisaCancelacionJMSBean extends DBTester implements MessageListener 
       Connection con = null;
       ResultSet rs = null;
       String numTarjeta = "";
-      Double importe = 0;
-      Double saldo = 0;
+      double importe = 0;
+      double saldo = 0;
 
       try {
 
@@ -78,33 +78,33 @@ public class VisaCancelacionJMSBean extends DBTester implements MessageListener 
 
              if (rs.next()) {
                  importe = rs.getDouble("importe");
-                 tarjeta = rs.getString("numeroTarjeta");
+                 numTarjeta = rs.getString("numeroTarjeta");
              }
              else {
                  throw new EJBException("Cancelacion no realizada: id no autorizado");
              }
 
              query = "select saldo " +
-                "from tarjeta " +
+                "from numTarjeta " +
                 "where numeroTarjeta=?";
 
              pstmt = con.prepareStatement(query);
-             pstmt.setString(1, tarjeta);
+             pstmt.setString(1, numTarjeta);
              rs = pstmt.executeQuery();
 
              if (rs.next()) {
                  saldo = rs.getDouble("saldo");
              }
              else {
-                 throw new EJBException("Cancelacion anulada: no se encuentra el saldo de la tarjeta");
+                 throw new EJBException("Cancelacion anulada: no se encuentra el saldo de la numTarjeta");
              }
 
              saldo = saldo + importe;
 
              query = UPDATE_RECTIFICA_QRY;
-             pstmt.con.prepareStatement(query);
+             pstmt = con.prepareStatement(query);
              pstmt.setDouble(1, saldo);
-             pstmt.setString(2, tarjeta);
+             pstmt.setString(2, numTarjeta);
              pstmt.executeUpdate();
              
 
