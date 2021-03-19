@@ -17,7 +17,9 @@ public class VisaQueueMessageProducer {
     // TODO: Anotar los siguientes objetos para
     // conectar con la connection factory y con la cola
     // definidas en el enunciado
+    @Resource(mappedName = "jms/NombreDeLaConnectionFactory")
     private static ConnectionFactory connectionFactory;
+    @Resource(mappedName = "jms/NombreDeLaCola")
     private static Queue queue;
 
     // Método de prueba
@@ -66,6 +68,11 @@ public class VisaQueueMessageProducer {
 
         try {
           // TODO: Inicializar connectionFactory
+
+          // InitialContext jndi = new InitialContext();
+          // connectionFactory = (ConnectionFactory)jndi.lookup("jms/VisaConnectionFactory");
+          // queue = (Queue)jndi.lookup("jms/VisaPagosQueue");
+
           // y queue mediante JNDI
 
           connection = connectionFactory.createConnection();
