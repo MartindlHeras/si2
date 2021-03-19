@@ -10,7 +10,7 @@ Santiago Valderrábano | santiago.valderrabano@estudiante.uam.es
 Martín de las Heras | martin.delasheras@estudiante.uam.es
 
 - [x] Entrega 0
-- [ ] Entrega 1a
+- [x] Entrega 1a
 - [ ] Entrega 1b
 - [ ] Entrega 2
 - [ ] Entrega 3
