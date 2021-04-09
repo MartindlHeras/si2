@@ -1,0 +1,8 @@
+Terminal VM
+sudo sh ./virtualip.sh wlp58s0
+sudo ssh si2@10.1.7.1
+asadmin start-domain domain1
+
+Terminal nuestra
+export J2EE_HOME=/opt/glassfish4/glassfish
+ant todo

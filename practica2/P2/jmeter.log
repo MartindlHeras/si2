@@ -1,0 +1,47 @@
+2021-04-09 17:15:26,504 INFO o.a.j.u.JMeterUtils: Setting Locale to en_US
+2021-04-09 17:15:26,518 INFO o.a.j.JMeter: Loading user properties from: /home/martin/apache-jmeter-5.2.1/bin/user.properties
+2021-04-09 17:15:26,518 INFO o.a.j.JMeter: Loading system properties from: /home/martin/apache-jmeter-5.2.1/bin/system.properties
+2021-04-09 17:15:26,520 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2021-04-09 17:15:26,520 INFO o.a.j.JMeter: Version 5.2.1
+2021-04-09 17:15:26,520 INFO o.a.j.JMeter: java.version=1.8.0_282
+2021-04-09 17:15:26,520 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2021-04-09 17:15:26,520 INFO o.a.j.JMeter: os.name=Linux
+2021-04-09 17:15:26,520 INFO o.a.j.JMeter: os.arch=amd64
+2021-04-09 17:15:26,521 INFO o.a.j.JMeter: os.version=5.4.0-65-generic
+2021-04-09 17:15:26,521 INFO o.a.j.JMeter: file.encoding=UTF-8
+2021-04-09 17:15:26,521 INFO o.a.j.JMeter: java.awt.headless=null
+2021-04-09 17:15:26,521 INFO o.a.j.JMeter: Max memory     =3666870272
+2021-04-09 17:15:26,521 INFO o.a.j.JMeter: Available Processors =4
+2021-04-09 17:15:26,525 INFO o.a.j.JMeter: Default Locale=English (United States)
+2021-04-09 17:15:26,525 INFO o.a.j.JMeter: JMeter  Locale=English (United States)
+2021-04-09 17:15:26,525 INFO o.a.j.JMeter: JMeterHome=/home/martin/apache-jmeter-5.2.1
+2021-04-09 17:15:26,525 INFO o.a.j.JMeter: user.dir  =/home/martin/Documents/si2/practica2/P2
+2021-04-09 17:15:26,526 INFO o.a.j.JMeter: PWD       =/home/martin/Documents/si2/practica2/P2
+2021-04-09 17:15:26,526 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: martin-XPS-13 FullName: martin-XPS-13
+2021-04-09 17:15:26,775 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2021-04-09 17:15:26,814 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2021-04-09 17:15:26,815 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2021-04-09 17:15:26,916 INFO o.a.j.u.JMeterUtils: Applying HiDPI scale: 2.0
+2021-04-09 17:15:26,920 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2021-04-09 17:15:28,773 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-04-09 17:15:28,774 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-04-09 17:15:28,775 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-04-09 17:15:28,775 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2021-04-09 17:15:28,775 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2021-04-09 17:15:28,775 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2021-04-09 17:15:29,175 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2021-04-09 17:15:29,176 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /home/martin/apache-jmeter-5.2.1/bin/proxyserver.jks
+2021-04-09 17:15:29,371 INFO o.a.j.s.FileServer: Default base='/home/martin/Documents/si2/practica2/P2'
+2021-04-09 17:15:29,704 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2021-04-09 17:15:29,704 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2021-04-09 17:15:29,704 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2021-04-09 17:15:29,704 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2021-04-09 17:15:29,722 INFO o.a.j.v.ViewResultsFullVisualizer: Add JavaFX to your Java installation if you want to use renderer: org.apache.jmeter.visualizers.RenderInBrowser
+2021-04-09 17:15:58,565 INFO o.a.j.g.a.Load: Loading file: /home/martin/Downloads/P2.jmx
+2021-04-09 17:15:58,567 INFO o.a.j.s.FileServer: Set new base='/home/martin/Downloads'
+2021-04-09 17:15:58,711 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2021-04-09 17:15:58,714 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2021-04-09 17:15:58,716 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2021-04-09 17:15:58,719 INFO o.a.j.s.SaveService: Loading file: /home/martin/Downloads/P2.jmx
+2021-04-09 17:15:58,881 INFO o.a.j.v.ViewResultsFullVisualizer: Add JavaFX to your Java installation if you want to use renderer: org.apache.jmeter.visualizers.RenderInBrowser
+2021-04-09 17:15:58,909 INFO o.a.j.s.FileServer: Set new base='/home/martin/Downloads'
