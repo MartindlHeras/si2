@@ -6,3 +6,6 @@ asadmin start-domain domain1
 Terminal nuestra
 export J2EE_HOME=/opt/glassfish4/glassfish
 ant todo
+~/apache-jmeter-5.2.1/bin/jmeter.sh &
+
+export PATH=/opt/glassfish4/glassfish/bin:$PATH
