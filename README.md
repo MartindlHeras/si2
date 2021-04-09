@@ -11,6 +11,6 @@ Martín de las Heras | martin.delasheras@estudiante.uam.es
 
 - [x] Entrega 0
 - [x] Entrega 1a
-- [ ] Entrega 1b
+- [x] Entrega 1b
 - [ ] Entrega 2
 - [ ] Entrega 3
