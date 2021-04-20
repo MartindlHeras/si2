@@ -9,3 +9,5 @@ ant todo
 ~/apache-jmeter-5.2.1/bin/jmeter.sh &
 
 export PATH=/opt/glassfish4/glassfish/bin:$PATH
+
+scp origen si2@10.1.7.1:
