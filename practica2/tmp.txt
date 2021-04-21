@@ -10,4 +10,6 @@ ant todo
 
 export PATH=/opt/glassfish4/glassfish/bin:$PATH
 
-scp origen si2@10.1.7.1:
+scp origen si2@10.1.7.1
+
+2021sid0s
