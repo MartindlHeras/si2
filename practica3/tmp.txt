@@ -10,13 +10,9 @@ ant todo
 
 export PATH=/opt/glassfish4/glassfish/bin:$PATH
 
-scp origen si2@10.1.7.1
+sshpass -p 2021sid0s scp si2@10.1.7.2:~/cpu-vm2.txt cpu-vm2.txt
 
 2021sid0s
-asadmin --user admin --passwordfile /opt/SI2/passwordfile create-node-ssh --sshuser si2 --nodehost 10.1.7.2 --nodedir /opt/glassfish4 Node01
-asadmin --user admin --passwordfile /opt/SI2/passwordfile list-nodes
 
-asadmin --user admin --passwordfile /opt/SI2/passwordfile create-instance --cluster SI2Cluster --node Node01 Instance01
-asadmin --user admin --passwordfile /opt/SI2/passwordfile create-instance --cluster SI2Cluster --node Node02 Instance02
-
-asadmin --user admin --passwordfile /opt/SI2/passwordfile list-instances –l
+export AS_ADMIN_USER=admin
+export AS_ADMIN_PASSWORDFILE=/opt/SI2/passwordfile
